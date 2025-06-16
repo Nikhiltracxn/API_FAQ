@@ -5,16 +5,52 @@
     <title>API FAQ Repository</title>
     <style>
         body {
-            background-color: #f7f9fb;
+            display: flex;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 40px;
+            padding: 0;
+            background-color: #f7f9fb;
             color: #2b2f3c;
         }
 
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            padding: 30px 20px;
+            border-right: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #1a73e8;
+            font-size: 14px;
+        }
+
+        .sidebar ul li a.active {
+            font-weight: bold;
+        }
+
         .faq-container {
-            max-width: 960px;
-            margin: 0 auto;
+            flex: 1;
+            padding: 40px;
         }
 
         h1 {
@@ -72,6 +108,38 @@
     </style>
 </head>
 <body>
+    <div class="sidebar">
+        <h2>Categories</h2>
+        <ul>
+            <li><a href="/faqs/" class="active">All</a></li>
+            
+                <li>
+                    <a href="?category=1" class="">
+                        Financial
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="?category=2" class="">
+                        People
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="?category=3" class="">
+                        General
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="?category=4" class="">
+                        Company
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
     <div class="faq-container">
         <h1>Frequently Asked Questions (API Clients)</h1>
 
@@ -79,7 +147,8 @@
             <div class="faq-item">
                 <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
                 <div class="faq-meta">
-                    Category: General &nbsp;|&nbsp; Created: 2025-06-16
+                    Category: General &nbsp;|&nbsp;
+                    Created: 2025-06-16
                 </div>
                 <div class="faq-answer">
                     Yes, we process information in multiple languages based on the source of the data. While English is the primary language, we also incorporate data in various other languages depending on the region and availability of filings. Below is an overview of the languages we process across different geographies:
@@ -160,7 +229,8 @@ We ensure comprehensive coverage across global markets by processing data in the
             <div class="faq-item">
                 <h3>Search by PINCODE and get the companies in that PINCODE</h3>
                 <div class="faq-meta">
-                    Category: Company &nbsp;|&nbsp; Created: 2025-06-16
+                    Category: Company &nbsp;|&nbsp;
+                    Created: 2025-06-16
                 </div>
                 <div class="faq-answer">
                     The user can use the below Sample request to search via PINCODE:
@@ -182,6 +252,21 @@ We ensure comprehensive coverage across global markets by processing data in the
         ]
     }
 }
+                </div>
+                
+            </div>
+        
+            <div class="faq-item">
+                <h3>In the Financials API response, does the amountInBaseCurrency under latestAnnualRevenue convert exactly to the amount in USD if the base currency is SGD?</h3>
+                <div class="faq-meta">
+                    Category: General &nbsp;|&nbsp;
+                    Created: 2025-06-16
+                </div>
+                <div class="faq-answer">
+                    Tracxn captures a company’s revenue in its base currency (e.g., SGD) and also records the equivalent USD value using the exchange rate applicable on the source publication date.
+For example, if a company reported revenue of 100K SGD as of April 1, 2024, Tracxn converts and stores the corresponding USD value based on the exchange rate on that date.
+The platform consistently retains the USD value internally and uses the exchange rate from the capture date to convert between the base currency and USD (or other currencies, if required).
+As a result, minor differences may exist due to currency fluctuations and the specific timing of the conversion.
                 </div>
                 
             </div>
