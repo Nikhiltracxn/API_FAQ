@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API FAQ Repository</title>
+    <style>
+        body {
+            background-color: #f7f9fb;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            color: #2b2f3c;
+        }
+
+        .faq-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .faq-item {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            margin: 0 0 8px 0;
+        }
+
+        .faq-meta {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .faq-tags {
+            display: inline-block;
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            padding: 5px 10px;
+            border-radius: 16px;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .no-faqs {
+            font-size: 16px;
+            color: #999;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <h1>Frequently Asked Questions (API Clients)</h1>
+
+        
+            <div class="faq-item">
+                <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
+                <div class="faq-meta">
+                    Category: General &nbsp;|&nbsp; Created: 2025-06-16
+                </div>
+                <div class="faq-answer">
+                    Yes, we process information in multiple languages based on the source of the data. While English is the primary language, we also incorporate data in various other languages depending on the region and availability of filings. Below is an overview of the languages we process across different geographies:
+
+English: India, UK, Singapore, Australia, USA, Ireland, New Zealand, Malaysia, South Africa
+
+French: France, Luxembourg, Belgium
+
+German: Germany, Austria, Switzerland
+
+Spanish: Spain, Mexico
+
+Mandarin Chinese: China, Taiwan
+
+Russian: Russia
+
+Portuguese: Brazil, Portugal
+
+Dutch: Netherlands, Belgium
+
+Arabic: Israel, UAE, Saudi Arabia, Jordan
+
+Italian: Italy
+
+Swedish: Sweden
+
+Danish: Denmark
+
+Polish: Poland
+
+Czech: Czech Republic, Czechia
+
+Korean: South Korea
+
+Japanese: Japan
+
+Hebrew: Israel
+
+Turkish: Turkey
+
+Indonesian: Indonesia
+
+Thai: Thailand
+
+Greek: Greece
+
+Hungarian: Hungary
+
+Romanian: Romania
+
+Finnish: Finland
+
+Norwegian: Norway
+
+Ukrainian: Ukraine
+
+Bulgarian: Bulgaria
+
+Latvian: Latvia
+
+Lithuanian: Lithuania
+
+Slovenian: Slovenia
+
+Afrikaans: South Africa
+
+Filipino: Philippines
+
+Urdu: Pakistan
+
+Swahili: Kenya
+
+We ensure comprehensive coverage across global markets by processing data in these languages, depending on regional filings and publicly available information.
+                </div>
+                
+            </div>
+        
+            <div class="faq-item">
+                <h3>Search by PINCODE and get the companies in that PINCODE</h3>
+                <div class="faq-meta">
+                    Category: Company &nbsp;|&nbsp; Created: 2025-06-16
+                </div>
+                <div class="faq-answer">
+                    The user can use the below Sample request to search via PINCODE:
+
+{
+    &quot;sort&quot;: [
+        {
+            &quot;sortField&quot;: &quot;relevance&quot;,
+            &quot;order&quot;: &quot;DEFAULT&quot;
+        }
+    ],
+    &quot;filter&quot;: {
+        &quot;addressesType&quot;: [
+            &quot;Headquarters&quot;,
+            &quot;Other Offices&quot;
+        ],
+        &quot;addressesPinCode&quot;: [
+            &quot;560102&quot;
+        ]
+    }
+}
+                </div>
+                
+            </div>
+        
+    </div>
+</body>
+</html>
