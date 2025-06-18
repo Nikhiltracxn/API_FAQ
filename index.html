@@ -2,50 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>API FAQ Repository</title>
+    <title>Tracxn | Help Center - API FAQs</title>
     <style>
         body {
-            display: flex;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f7f9fb;
-            color: #2b2f3c;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fb;
+            color: #2d2f33;
+        }
+
+        header {
+            background: linear-gradient(to right, #0d1b47, #1a2b6d);
+            color: white;
+            padding: 24px 40px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-text {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .brand .divider {
+            color: #9ca3af;
+            font-weight: normal;
+        }
+
+        .logo {
+            height: 28px;
+        }
+
+        .right-options {
+            font-size: 14px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .lang, .profile {
+            background-color: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .main {
+            display: flex;
         }
 
         .sidebar {
-            width: 250px;
-            background: #fff;
+            width: 260px;
+            background-color: white;
             padding: 30px 20px;
-            border-right: 1px solid #eee;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-right: 1px solid #e5e7eb;
             height: 100vh;
             position: sticky;
             top: 0;
         }
 
         .sidebar h2 {
-            font-size: 18px;
-            margin-bottom: 16px;
+            font-size: 16px;
+            color: #1f2937;
+            margin-bottom: 20px;
         }
 
         .sidebar ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .sidebar ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .sidebar ul li a {
+            color: #2563eb;
             text-decoration: none;
-            color: #1a73e8;
             font-size: 14px;
         }
 
         .sidebar ul li a.active {
             font-weight: bold;
+            color: #1d4ed8;
         }
 
         .faq-container {
@@ -53,19 +121,18 @@
             padding: 40px;
         }
 
-        h1 {
-            font-size: 26px;
-            font-weight: 600;
-            margin-bottom: 32px;
+        .faq-container h2 {
+            font-size: 22px;
+            margin-bottom: 24px;
         }
 
         .faq-item {
-            background-color: #ffffff;
-            border-radius: 12px;
+            background-color: white;
             padding: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
-            transition: box-shadow 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: all 0.2s ease-in-out;
         }
 
         .faq-item:hover {
@@ -73,85 +140,115 @@
         }
 
         .faq-item h3 {
+            margin-top: 0;
             font-size: 18px;
-            margin: 0 0 8px 0;
+            color: #111827;
         }
 
         .faq-meta {
             font-size: 13px;
             color: #6b7280;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .faq-answer {
             font-size: 15px;
-            line-height: 1.6;
             color: #374151;
+            line-height: 1.6;
+        }
+
+        .faq-answer p {
+            margin: 10px 0;
+        }
+
+        .faq-answer pre {
+            background-color: #f3f4f6;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
         }
 
         .faq-tags {
             display: inline-block;
-            background-color: #e8f0fe;
-            color: #1a73e8;
-            padding: 5px 10px;
-            border-radius: 16px;
-            font-size: 13px;
             margin-top: 12px;
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
         }
 
         .no-faqs {
-            font-size: 16px;
-            color: #999;
             text-align: center;
-            margin-top: 40px;
+            font-size: 16px;
+            color: #9ca3af;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Categories</h2>
-        <ul>
-            <li><a href="/faqs/" class="active">All</a></li>
-            
-                <li>
-                    <a href="?category=1" class="">
-                        Financial
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="?category=2" class="">
-                        People
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="?category=3" class="">
-                        General
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="?category=4" class="">
-                        Company
-                    </a>
-                </li>
-            
-        </ul>
-    </div>
 
-    <div class="faq-container">
-        <h1>Frequently Asked Questions (API Clients)</h1>
+    <header>
+        <div class="top-bar">
+            <div class="brand">
+                <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
+                <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
+            </div>
+            <div class="right-options">
+                <span class="lang">🌐 English</span>
+                <span class="profile">tracxn</span>
+            </div>
+        </div>
+        <h1>Hi, How can we help you?</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for articles..." />
+        </div>
+    </header>
 
-        
-            <div class="faq-item">
-                <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
-                <div class="faq-meta">
-                    Category: General &nbsp;|&nbsp;
-                    Created: 2025-06-16
-                </div>
-                <div class="faq-answer">
-                    Yes, we process information in multiple languages based on the source of the data. While English is the primary language, we also incorporate data in various other languages depending on the region and availability of filings. Below is an overview of the languages we process across different geographies:
+    <div class="main">
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="/faqs/" class="active">All</a></li>
+                
+                    <li>
+                        <a href="?category=1" class="">
+                            Financial
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=2" class="">
+                            People
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=3" class="">
+                            General
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=4" class="">
+                            Company
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+
+        <div class="faq-container">
+            <h2>Frequently Asked Questions (API Clients)</h2>
+            
+                <div class="faq-item">
+                    <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we process information in multiple languages based on the source of the data. While English is the primary language, we also incorporate data in various other languages depending on the region and availability of filings. Below is an overview of the languages we process across different geographies:
 
 English: India, UK, Singapore, Australia, USA, Ireland, New Zealand, Malaysia, South Africa
 
@@ -221,19 +318,20 @@ Urdu: Pakistan
 
 Swahili: Kenya
 
-We ensure comprehensive coverage across global markets by processing data in these languages, depending on regional filings and publicly available information.
+We ensure comprehensive coverage across global markets by processing data in these languages, depending on regional filings and publicly available information.</p>
+                        
+                    </div>
+                    
                 </div>
-                
-            </div>
-        
-            <div class="faq-item">
-                <h3>Search by PINCODE and get the companies in that PINCODE</h3>
-                <div class="faq-meta">
-                    Category: Company &nbsp;|&nbsp;
-                    Created: 2025-06-16
-                </div>
-                <div class="faq-answer">
-                    The user can use the below Sample request to search via PINCODE:
+            
+                <div class="faq-item">
+                    <h3>Search by PINCODE and get the companies in that PINCODE</h3>
+                    <div class="faq-meta">
+                        Category: Company &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>The user can use the below Sample request to search via PINCODE:
 
 {
     &quot;sort&quot;: [
@@ -251,26 +349,140 @@ We ensure comprehensive coverage across global markets by processing data in the
             &quot;560102&quot;
         ]
     }
-}
+}</p>
+                        
+                    </div>
+                    
                 </div>
-                
-            </div>
-        
-            <div class="faq-item">
-                <h3>In the Financials API response, does the amountInBaseCurrency under latestAnnualRevenue convert exactly to the amount in USD if the base currency is SGD?</h3>
-                <div class="faq-meta">
-                    Category: General &nbsp;|&nbsp;
-                    Created: 2025-06-16
-                </div>
-                <div class="faq-answer">
-                    Tracxn captures a company’s revenue in its base currency (e.g., SGD) and also records the equivalent USD value using the exchange rate applicable on the source publication date.
+            
+                <div class="faq-item">
+                    <h3>In the Financials API response, does the amountInBaseCurrency under latestAnnualRevenue convert exactly to the amount in USD if the base currency is SGD?</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tracxn captures a company’s revenue in its base currency (e.g., SGD) and also records the equivalent USD value using the exchange rate applicable on the source publication date.
 For example, if a company reported revenue of 100K SGD as of April 1, 2024, Tracxn converts and stores the corresponding USD value based on the exchange rate on that date.
 The platform consistently retains the USD value internally and uses the exchange rate from the capture date to convert between the base currency and USD (or other currencies, if required).
-As a result, minor differences may exist due to currency fluctuations and the specific timing of the conversion.
+As a result, minor differences may exist due to currency fluctuations and the specific timing of the conversion.</p>
+                        
+                    </div>
+                    
                 </div>
-                
-            </div>
-        
+            
+                <div class="faq-item">
+                    <h3>What is the difference between ‘Seed’ and ‘Angel’ funding rounds?</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>Seed Round: This round includes at least one institutional investor, such as a venture capital firm or accelerator.
+
+Angel Round: This round is composed exclusively of individual investors (angels) and does not involve any institutional investors.
+
+The key distinction lies in the type of investors participating in the funding round.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>How is the data for IPO events distributed?</h3>
+                    <div class="faq-meta">
+                        Category: Financial &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>The distribution of IPO event data is as follows:
+
+95% of the data is sourced directly from IPO exchanges.
+
+The remaining 5% comes from news coverage that reports on IPO events.
+
+This ensures that the data we provide is comprehensive and reliable, with a primary focus on official IPO exchanges.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>In the equity funding transactions, can we also capture:  In seed round, how much money have the founders invested in? In each round, who has exited the company by selling off their stake and how much stake sold? Who has diluted their stake and what %, and which investor has acquired what % of stake.</h3>
+                    <div class="faq-meta">
+                        Category: Financial &nbsp;|&nbsp;
+                        Created: 2025-06-17
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can find this information under the CapTable section on the Tracxn platform. This section provides insights into founder stakes across funding rounds, dilution events, and overall ownership structure.
+
+Click here for an example captable of Zomato
+
+API Endpoint: https://platform.tracxn.com/api/3.0/captables/
+
+Sample Request:
+
+{
+    &quot;filter&quot;: {
+        &quot;domain&quot;: [
+            &quot;zomato.com&quot;
+        ]
+    }
+}
+
+With the above API Request you will get all the required details of the data stored in Captables API.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>The data that Caplight has used is missing the &#x27;valuation&#x27; figures for the funding rounds</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-17
+                    </div>
+                    <div class="faq-answer">
+                        <p>Valuation is based on the availability of data in the media articles for all the geographies. In case, we do not have the data, this will not be covered
+Secondly, very limited geographies (India, UK, Denmark) have information in the documents based on which the valuation is calculated from our end. If the geography is not a part of the coverage or the information in the documents is insufficient, we will not have valuation mapped or reported.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>Query Logs Query Logs 100% 10 E32  Do you cover other deal types such as Venture Debt, Buyouts, M&amp;A, etc.?   Table1    	 Do you cover other deal types such as Venture Debt, Buyouts, M&amp;A, etc.? Turn on screen reader support To enable screen reader support, press Ctrl+Alt+Z To learn about keyboard shortcuts, press Ctrl+slash</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-18
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we do cover a variety of deal types including Buyouts and M&amp;A. These are available through the Acquisitions API.</p>
+                        
+                            
+                                <p><strong>API Endpoint:</strong> https://platform.tracxn.com/api/2.2/acquisitiontransactions</p>
+                            
+                            
+                                <p><strong>Sample Request:</strong></p>
+                                <pre>{
+  &quot;filter&quot;: {
+    &quot;acquisitionType&quot;: [
+      &quot;Leveraged Buyout&quot;,
+      &quot;Acqui-Hired&quot;,
+      &quot;Business Acquisition&quot;,
+      &quot;Management Buyout&quot;,
+      &quot;Management Buy-In&quot;
+    ]
+  }
+}</pre>
+                            
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
     </div>
+
 </body>
 </html>
