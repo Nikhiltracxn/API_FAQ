@@ -4,7 +4,7 @@ from django.contrib import admin
 
 
 from django.contrib import admin
-from .models import FAQ, Category
+from .models import FAQ, Category,Answer
 
 @admin.register(FAQ)
 class FAQAdmin(admin.ModelAdmin):
@@ -12,4 +12,10 @@ class FAQAdmin(admin.ModelAdmin):
     search_fields = ('question', 'answer', 'tags')
     list_filter = ('category', 'is_active')
 
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+@admin.register(Answer)
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = ('faq', 'sample_request', 'api_endpoint')

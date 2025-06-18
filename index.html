@@ -188,58 +188,301 @@
 </head>
 <body>
 
-<header>
-    <div class="top-bar">
-        <div class="brand">
-            <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
-            <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
-        </div>
-        <div class="right-options">
-            <span class="lang">🌐 English</span>
-            <span class="profile">tracxn</span>
-        </div>
-    </div>
-    <h1>Hi, How can we help you?</h1>
-    <div class="search-bar">
-        <input type="text" placeholder="Search for articles..." />
-    </div>
-</header>
-
-<div class="main">
-    <div class="sidebar">
-        <h2>Categories</h2>
-        <ul>
-            <li><a href="index.html" class="active">All</a></li>
-            <li><a href="financial.html">Financial</a></li>
-            <li><a href="people.html">People</a></li>
-            <li><a href="general.html">General</a></li>
-            <li><a href="company.html">Company</a></li>
-        </ul>
-    </div>
-
-    <div class="faq-container">
-        <h2>Frequently Asked Questions (API Clients)</h2>
-
-        <!-- Add your FAQ items below this line -->
-        <!-- KEEP ALL YOUR FAQS HERE AS YOU ALREADY HAVE THEM IN THE ORIGINAL FILE -->
-        <!-- I have excluded the FAQ items for brevity but keep them as-is below this -->
-        
-        <!-- Example -->
-        <div class="faq-item">
-            <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
-            <div class="faq-meta">
-                Category: General &nbsp;|&nbsp;
-                Created: 2025-06-16
+    <header>
+        <div class="top-bar">
+            <div class="brand">
+                <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
+                <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
             </div>
-            <div class="faq-answer">
-                <p>Yes, we process information in multiple languages...</p>
+            <div class="right-options">
+                <span class="lang">🌐 English</span>
+                <span class="profile">tracxn</span>
             </div>
         </div>
+        <h1>Hi, How can we help you?</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for articles..." />
+        </div>
+    </header>
 
-        <!-- Paste all the other FAQ divs you had here as they are -->
-        
+    <div class="main">
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="/faqs/" class="active">All</a></li>
+                
+                    <li>
+                        <a href="?category=1" class="">
+                            Financial
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=2" class="">
+                            People
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=3" class="">
+                            General
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=4" class="">
+                            Company
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+
+        <div class="faq-container">
+            <h2>Frequently Asked Questions (API Clients)</h2>
+            
+                <div class="faq-item">
+                    <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we process information in multiple languages based on the source of the data. While English is the primary language, we also incorporate data in various other languages depending on the region and availability of filings. Below is an overview of the languages we process across different geographies:
+
+English: India, UK, Singapore, Australia, USA, Ireland, New Zealand, Malaysia, South Africa
+
+French: France, Luxembourg, Belgium
+
+German: Germany, Austria, Switzerland
+
+Spanish: Spain, Mexico
+
+Mandarin Chinese: China, Taiwan
+
+Russian: Russia
+
+Portuguese: Brazil, Portugal
+
+Dutch: Netherlands, Belgium
+
+Arabic: Israel, UAE, Saudi Arabia, Jordan
+
+Italian: Italy
+
+Swedish: Sweden
+
+Danish: Denmark
+
+Polish: Poland
+
+Czech: Czech Republic, Czechia
+
+Korean: South Korea
+
+Japanese: Japan
+
+Hebrew: Israel
+
+Turkish: Turkey
+
+Indonesian: Indonesia
+
+Thai: Thailand
+
+Greek: Greece
+
+Hungarian: Hungary
+
+Romanian: Romania
+
+Finnish: Finland
+
+Norwegian: Norway
+
+Ukrainian: Ukraine
+
+Bulgarian: Bulgaria
+
+Latvian: Latvia
+
+Lithuanian: Lithuania
+
+Slovenian: Slovenia
+
+Afrikaans: South Africa
+
+Filipino: Philippines
+
+Urdu: Pakistan
+
+Swahili: Kenya
+
+We ensure comprehensive coverage across global markets by processing data in these languages, depending on regional filings and publicly available information.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>Search by PINCODE and get the companies in that PINCODE</h3>
+                    <div class="faq-meta">
+                        Category: Company &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>The user can use the below Sample request to search via PINCODE:
+
+{
+    &quot;sort&quot;: [
+        {
+            &quot;sortField&quot;: &quot;relevance&quot;,
+            &quot;order&quot;: &quot;DEFAULT&quot;
+        }
+    ],
+    &quot;filter&quot;: {
+        &quot;addressesType&quot;: [
+            &quot;Headquarters&quot;,
+            &quot;Other Offices&quot;
+        ],
+        &quot;addressesPinCode&quot;: [
+            &quot;560102&quot;
+        ]
+    }
+}</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>In the Financials API response, does the amountInBaseCurrency under latestAnnualRevenue convert exactly to the amount in USD if the base currency is SGD?</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tracxn captures a company’s revenue in its base currency (e.g., SGD) and also records the equivalent USD value using the exchange rate applicable on the source publication date.
+For example, if a company reported revenue of 100K SGD as of April 1, 2024, Tracxn converts and stores the corresponding USD value based on the exchange rate on that date.
+The platform consistently retains the USD value internally and uses the exchange rate from the capture date to convert between the base currency and USD (or other currencies, if required).
+As a result, minor differences may exist due to currency fluctuations and the specific timing of the conversion.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>What is the difference between ‘Seed’ and ‘Angel’ funding rounds?</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>Seed Round: This round includes at least one institutional investor, such as a venture capital firm or accelerator.
+
+Angel Round: This round is composed exclusively of individual investors (angels) and does not involve any institutional investors.
+
+The key distinction lies in the type of investors participating in the funding round.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>How is the data for IPO events distributed?</h3>
+                    <div class="faq-meta">
+                        Category: Financial &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>The distribution of IPO event data is as follows:
+
+95% of the data is sourced directly from IPO exchanges.
+
+The remaining 5% comes from news coverage that reports on IPO events.
+
+This ensures that the data we provide is comprehensive and reliable, with a primary focus on official IPO exchanges.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>In the equity funding transactions, can we also capture:  In seed round, how much money have the founders invested in? In each round, who has exited the company by selling off their stake and how much stake sold? Who has diluted their stake and what %, and which investor has acquired what % of stake.</h3>
+                    <div class="faq-meta">
+                        Category: Financial &nbsp;|&nbsp;
+                        Created: 2025-06-17
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can find this information under the CapTable section on the Tracxn platform. This section provides insights into founder stakes across funding rounds, dilution events, and overall ownership structure.
+
+Click here for an example captable of Zomato
+
+API Endpoint: https://platform.tracxn.com/api/3.0/captables/
+
+Sample Request:
+
+{
+    &quot;filter&quot;: {
+        &quot;domain&quot;: [
+            &quot;zomato.com&quot;
+        ]
+    }
+}
+
+With the above API Request you will get all the required details of the data stored in Captables API.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>The data that Caplight has used is missing the &#x27;valuation&#x27; figures for the funding rounds</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-17
+                    </div>
+                    <div class="faq-answer">
+                        <p>Valuation is based on the availability of data in the media articles for all the geographies. In case, we do not have the data, this will not be covered
+Secondly, very limited geographies (India, UK, Denmark) have information in the documents based on which the valuation is calculated from our end. If the geography is not a part of the coverage or the information in the documents is insufficient, we will not have valuation mapped or reported.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>Query Logs Query Logs 100% 10 E32  Do you cover other deal types such as Venture Debt, Buyouts, M&amp;A, etc.?   Table1    	 Do you cover other deal types such as Venture Debt, Buyouts, M&amp;A, etc.? Turn on screen reader support To enable screen reader support, press Ctrl+Alt+Z To learn about keyboard shortcuts, press Ctrl+slash</h3>
+                    <div class="faq-meta">
+                        Category: General &nbsp;|&nbsp;
+                        Created: 2025-06-18
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we do cover a variety of deal types including Buyouts and M&amp;A. These are available through the Acquisitions API.</p>
+                        
+                            
+                                <p><strong>API Endpoint:</strong> https://platform.tracxn.com/api/2.2/acquisitiontransactions</p>
+                            
+                            
+                                <p><strong>Sample Request:</strong></p>
+                                <pre>{
+  &quot;filter&quot;: {
+    &quot;acquisitionType&quot;: [
+      &quot;Leveraged Buyout&quot;,
+      &quot;Acqui-Hired&quot;,
+      &quot;Business Acquisition&quot;,
+      &quot;Management Buyout&quot;,
+      &quot;Management Buy-In&quot;
+    ]
+  }
+}</pre>
+                            
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
     </div>
-</div>
 
 </body>
 </html>

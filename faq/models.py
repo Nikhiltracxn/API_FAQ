@@ -19,3 +19,13 @@ class FAQ(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.question
+
+class Answer(models.Model):
+    faq = models.OneToOneField(FAQ, on_delete=models.CASCADE, related_name='detailed_answer')
+    sample_request = models.TextField(null=True, blank=True)
+    api_endpoint = models.URLField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Answer details for: {self.faq.question}"

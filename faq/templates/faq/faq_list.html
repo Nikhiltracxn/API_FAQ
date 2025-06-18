@@ -2,34 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>API FAQ Repository</title>
+    <title>Tracxn | Help Center - API FAQs</title>
     <style>
         body {
-            background-color: #f7f9fb;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 40px;
-            color: #2b2f3c;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fb;
+            color: #2d2f33;
+        }
+
+        header {
+            background: linear-gradient(to right, #0d1b47, #1a2b6d);
+            color: white;
+            padding: 24px 40px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-text {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .brand .divider {
+            color: #9ca3af;
+            font-weight: normal;
+        }
+
+        .logo {
+            height: 28px;
+        }
+
+        .right-options {
+            font-size: 14px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .lang, .profile {
+            background-color: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: white;
+            padding: 30px 20px;
+            border-right: 1px solid #e5e7eb;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar ul li a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar ul li a.active {
+            font-weight: bold;
+            color: #1d4ed8;
         }
 
         .faq-container {
-            max-width: 960px;
-            margin: 0 auto;
+            flex: 1;
+            padding: 40px;
         }
 
-        h1 {
-            font-size: 26px;
-            font-weight: 600;
-            margin-bottom: 32px;
+        .faq-container h2 {
+            font-size: 22px;
+            margin-bottom: 24px;
         }
 
         .faq-item {
-            background-color: #ffffff;
-            border-radius: 12px;
+            background-color: white;
             padding: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
-            transition: box-shadow 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: all 0.2s ease-in-out;
         }
 
         .faq-item:hover {
@@ -37,62 +140,116 @@
         }
 
         .faq-item h3 {
+            margin-top: 0;
             font-size: 18px;
-            margin: 0 0 8px 0;
+            color: #111827;
         }
 
         .faq-meta {
             font-size: 13px;
             color: #6b7280;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .faq-answer {
             font-size: 15px;
-            line-height: 1.6;
             color: #374151;
+            line-height: 1.6;
+        }
+
+        .faq-answer p {
+            margin: 10px 0;
+        }
+
+        .faq-answer pre {
+            background-color: #f3f4f6;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
         }
 
         .faq-tags {
             display: inline-block;
-            background-color: #e8f0fe;
-            color: #1a73e8;
-            padding: 5px 10px;
-            border-radius: 16px;
-            font-size: 13px;
             margin-top: 12px;
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
         }
 
         .no-faqs {
-            font-size: 16px;
-            color: #999;
             text-align: center;
-            margin-top: 40px;
+            font-size: 16px;
+            color: #9ca3af;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="faq-container">
-        <h1>Frequently Asked Questions (API Clients)</h1>
 
-        {% for faq in faqs %}
-            <div class="faq-item">
-                <h3>{{ faq.question }}</h3>
-                <div class="faq-meta">
-                    Category: {{ faq.category.name }} &nbsp;|&nbsp; Created: {{ faq.created_at|date:"Y-m-d" }}
-                </div>
-                <div class="faq-answer">
-                    {{ faq.answer }}
-                </div>
-                {% if faq.tags %}
-                <div class="faq-tags">
-                    {{ faq.tags }}
-                </div>
-                {% endif %}
+    <header>
+        <div class="top-bar">
+            <div class="brand">
+                <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
+                <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
             </div>
-        {% empty %}
-            <div class="no-faqs">No FAQs available.</div>
-        {% endfor %}
+            <div class="right-options">
+                <span class="lang">🌐 English</span>
+                <span class="profile">tracxn</span>
+            </div>
+        </div>
+        <h1>Hi, How can we help you?</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for articles..." />
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="{% url 'faq-list' %}" class="{% if not selected_category %}active{% endif %}">All</a></li>
+                {% for category in categories %}
+                    <li>
+                        <a href="?category={{ category.id }}" class="{% if selected_category == category.id %}active{% endif %}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="faq-container">
+            <h2>Frequently Asked Questions (API Clients)</h2>
+            {% for faq in faqs %}
+                <div class="faq-item">
+                    <h3>{{ faq.question }}</h3>
+                    <div class="faq-meta">
+                        Category: {{ faq.category.name|default:"Uncategorized" }} &nbsp;|&nbsp;
+                        Created: {{ faq.created_at|date:"Y-m-d" }}
+                    </div>
+                    <div class="faq-answer">
+                        <p>{{ faq.answer }}</p>
+                        {% if faq.detailed_answer %}
+                            {% if faq.detailed_answer.api_endpoint %}
+                                <p><strong>API Endpoint:</strong> {{ faq.detailed_answer.api_endpoint }}</p>
+                            {% endif %}
+                            {% if faq.detailed_answer.sample_request %}
+                                <p><strong>Sample Request:</strong></p>
+                                <pre>{{ faq.detailed_answer.sample_request }}</pre>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    {% if faq.tags %}
+                        <div class="faq-tags">{{ faq.tags }}</div>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <div class="no-faqs">No FAQs available.</div>
+            {% endfor %}
+        </div>
     </div>
+
 </body>
 </html>

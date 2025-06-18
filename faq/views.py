@@ -4,9 +4,24 @@ from django.shortcuts import render
 
 # faq/views.py
 from django.shortcuts import render
-from .models import FAQ
+from .models import FAQ, Category
+
+
 
 def faq_list(request):
-    faqs = FAQ.objects.filter(is_active=True)
-    return render(request, 'faq/faq_list.html', {'faqs': faqs})
+    selected_category_id = request.GET.get('category')  # from URL ?category=1
+    categories = Category.objects.all()
+
+    if selected_category_id:
+        faqs = FAQ.objects.filter(is_active=True, category_id=selected_category_id)
+        selected_category = int(selected_category_id)
+    else:
+        faqs = FAQ.objects.filter(is_active=True)
+        selected_category = None
+
+    return render(request, 'faq/faq_list.html', {
+        'faqs': faqs,
+        'categories': categories,
+        'selected_category': selected_category,
+    })
 
