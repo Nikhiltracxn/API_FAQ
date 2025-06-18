@@ -188,58 +188,92 @@
 </head>
 <body>
 
-<header>
-    <div class="top-bar">
-        <div class="brand">
-            <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
-            <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
-        </div>
-        <div class="right-options">
-            <span class="lang">🌐 English</span>
-            <span class="profile">tracxn</span>
-        </div>
-    </div>
-    <h1>Hi, How can we help you?</h1>
-    <div class="search-bar">
-        <input type="text" placeholder="Search for articles..." />
-    </div>
-</header>
-
-<div class="main">
-    <div class="sidebar">
-        <h2>Categories</h2>
-        <ul>
-            <li><a href="index.html" class="active">All</a></li>
-            <li><a href="financial.html">Financial</a></li>
-            <li><a href="people.html">People</a></li>
-            <li><a href="general.html">General</a></li>
-            <li><a href="company.html">Company</a></li>
-        </ul>
-    </div>
-
-    <div class="faq-container">
-        <h2>Frequently Asked Questions (API Clients)</h2>
-
-        <!-- Add your FAQ items below this line -->
-        <!-- KEEP ALL YOUR FAQS HERE AS YOU ALREADY HAVE THEM IN THE ORIGINAL FILE -->
-        <!-- I have excluded the FAQ items for brevity but keep them as-is below this -->
-        
-        <!-- Example -->
-        <div class="faq-item">
-            <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
-            <div class="faq-meta">
-                Category: General &nbsp;|&nbsp;
-                Created: 2025-06-16
+    <header>
+        <div class="top-bar">
+            <div class="brand">
+                <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
+                <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
             </div>
-            <div class="faq-answer">
-                <p>Yes, we process information in multiple languages...</p>
+            <div class="right-options">
+                <span class="lang">🌐 English</span>
+                <span class="profile">tracxn</span>
             </div>
         </div>
+        <h1>Hi, How can we help you?</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for articles..." />
+        </div>
+    </header>
 
-        <!-- Paste all the other FAQ divs you had here as they are -->
-        
+    <div class="main">
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="/faqs/" class="">All</a></li>
+                
+                    <li>
+                        <a href="?category=1" class="">
+                            Financial
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=2" class="">
+                            People
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=3" class="">
+                            General
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=4" class="active">
+                            Company
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+
+        <div class="faq-container">
+            <h2>Frequently Asked Questions (API Clients)</h2>
+            
+                <div class="faq-item">
+                    <h3>Search by PINCODE and get the companies in that PINCODE</h3>
+                    <div class="faq-meta">
+                        Category: Company &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>The user can use the below Sample request to search via PINCODE:
+
+{
+    &quot;sort&quot;: [
+        {
+            &quot;sortField&quot;: &quot;relevance&quot;,
+            &quot;order&quot;: &quot;DEFAULT&quot;
+        }
+    ],
+    &quot;filter&quot;: {
+        &quot;addressesType&quot;: [
+            &quot;Headquarters&quot;,
+            &quot;Other Offices&quot;
+        ],
+        &quot;addressesPinCode&quot;: [
+            &quot;560102&quot;
+        ]
+    }
+}</p>
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
     </div>
-</div>
 
 </body>
 </html>

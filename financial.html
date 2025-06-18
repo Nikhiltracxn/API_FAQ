@@ -188,58 +188,109 @@
 </head>
 <body>
 
-<header>
-    <div class="top-bar">
-        <div class="brand">
-            <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
-            <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
-        </div>
-        <div class="right-options">
-            <span class="lang">🌐 English</span>
-            <span class="profile">tracxn</span>
-        </div>
-    </div>
-    <h1>Hi, How can we help you?</h1>
-    <div class="search-bar">
-        <input type="text" placeholder="Search for articles..." />
-    </div>
-</header>
-
-<div class="main">
-    <div class="sidebar">
-        <h2>Categories</h2>
-        <ul>
-            <li><a href="index.html" class="active">All</a></li>
-            <li><a href="financial.html">Financial</a></li>
-            <li><a href="people.html">People</a></li>
-            <li><a href="general.html">General</a></li>
-            <li><a href="company.html">Company</a></li>
-        </ul>
-    </div>
-
-    <div class="faq-container">
-        <h2>Frequently Asked Questions (API Clients)</h2>
-
-        <!-- Add your FAQ items below this line -->
-        <!-- KEEP ALL YOUR FAQS HERE AS YOU ALREADY HAVE THEM IN THE ORIGINAL FILE -->
-        <!-- I have excluded the FAQ items for brevity but keep them as-is below this -->
-        
-        <!-- Example -->
-        <div class="faq-item">
-            <h3>Do you process information in languages other than English? If so, which languages are supported?</h3>
-            <div class="faq-meta">
-                Category: General &nbsp;|&nbsp;
-                Created: 2025-06-16
+    <header>
+        <div class="top-bar">
+            <div class="brand">
+                <img src="https://tracxn.com/images/logo.svg" alt="Tracxn Logo" class="logo">
+                <span class="brand-text">Tracxn <span class="divider">|</span> Help Center</span>
             </div>
-            <div class="faq-answer">
-                <p>Yes, we process information in multiple languages...</p>
+            <div class="right-options">
+                <span class="lang">🌐 English</span>
+                <span class="profile">tracxn</span>
             </div>
         </div>
+        <h1>Hi, How can we help you?</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for articles..." />
+        </div>
+    </header>
 
-        <!-- Paste all the other FAQ divs you had here as they are -->
-        
+    <div class="main">
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="/faqs/" class="">All</a></li>
+                
+                    <li>
+                        <a href="?category=1" class="active">
+                            Financial
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=2" class="">
+                            People
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=3" class="">
+                            General
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="?category=4" class="">
+                            Company
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+
+        <div class="faq-container">
+            <h2>Frequently Asked Questions (API Clients)</h2>
+            
+                <div class="faq-item">
+                    <h3>How is the data for IPO events distributed?</h3>
+                    <div class="faq-meta">
+                        Category: Financial &nbsp;|&nbsp;
+                        Created: 2025-06-16
+                    </div>
+                    <div class="faq-answer">
+                        <p>The distribution of IPO event data is as follows:
+
+95% of the data is sourced directly from IPO exchanges.
+
+The remaining 5% comes from news coverage that reports on IPO events.
+
+This ensures that the data we provide is comprehensive and reliable, with a primary focus on official IPO exchanges.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="faq-item">
+                    <h3>In the equity funding transactions, can we also capture:  In seed round, how much money have the founders invested in? In each round, who has exited the company by selling off their stake and how much stake sold? Who has diluted their stake and what %, and which investor has acquired what % of stake.</h3>
+                    <div class="faq-meta">
+                        Category: Financial &nbsp;|&nbsp;
+                        Created: 2025-06-17
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can find this information under the CapTable section on the Tracxn platform. This section provides insights into founder stakes across funding rounds, dilution events, and overall ownership structure.
+
+Click here for an example captable of Zomato
+
+API Endpoint: https://platform.tracxn.com/api/3.0/captables/
+
+Sample Request:
+
+{
+    &quot;filter&quot;: {
+        &quot;domain&quot;: [
+            &quot;zomato.com&quot;
+        ]
+    }
+}
+
+With the above API Request you will get all the required details of the data stored in Captables API.</p>
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
     </div>
-</div>
 
 </body>
 </html>
